@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="my">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>Monkey Recharge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <div class="app">
+    <header class="hero">
+      <div class="hero-glow"></div>
+      <div class="hero-content">
+        <span class="eyebrow">MOBILE LEGENDS</span>
+        <h1>Monkey Recharge</h1>
+        <p class="sub">Server ID ထည့်ပြီး၊ Package ရွေးပြီး၊ မိနစ်ပိုင်းအတွင်း ရယူပါ</p>
+      </div>
+      <svg class="hero-diamond" viewBox="0 0 64 64" fill="none">
+        <path d="M32 4 L58 24 L32 60 L6 24 Z" stroke="url(#g)" stroke-width="1.5"/>
+        <path d="M6 24 H58 M18 24 L32 4 L46 24 M18 24 L32 60 L46 24" stroke="url(#g)" stroke-width="1"/>
+        <defs>
+          <linearGradient id="g" x1="6" y1="4" x2="58" y2="60">
+            <stop offset="0" stop-color="#7FE3FF"/>
+            <stop offset="1" stop-color="#FFC94A"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </header>
+
+    <main>
+      <section class="field-group">
+        <label class="field-label">ဂိမ်း အချက်အလက်</label>
+        <div class="input-row">
+          <input id="gameId" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="Game ID (ဥပမာ 123456789)" />
+          <input id="serverId" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="Server (ဥပမာ 2001)" class="server-input" />
+        </div>
+      </section>
+
+      <section class="field-group">
+        <label class="field-label">Package ရွေးပါ</label>
+        <div id="packageGrid" class="package-grid"></div>
+      </section>
+
+      <section class="field-group">
+        <label class="field-label">ငွေပေးချေမှု နည်းလမ်း</label>
+        <div class="pay-methods">
+          <button class="pay-btn" data-method="kbzpay">
+            <span class="pay-dot kbz"></span> KBZPay
+          </button>
+          <button class="pay-btn" data-method="wavepay">
+            <span class="pay-dot wave"></span> WavePay
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="checkout-bar">
+      <div class="total">
+        <span class="total-label">စုစုပေါင်း</span>
+        <span id="totalPrice" class="total-price">— MMK</span>
+      </div>
+      <button id="submitBtn" class="submit-btn" disabled>Order တင်မည်</button>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
