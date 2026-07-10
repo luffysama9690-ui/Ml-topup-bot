@@ -11,6 +11,7 @@
 </head>
 <body>
   <div class="app">
+    <div id="orderScreen">
     <header class="hero">
       <div class="hero-glow"></div>
       <div class="hero-content">
@@ -64,6 +65,38 @@
       </div>
       <button id="submitBtn" class="submit-btn" disabled>Order တင်မည်</button>
     </footer>
+    </div>
+
+    <!-- NEW: Order တင်ပြီးရင် ဒီ payment screen ကို Mini App ထဲမှာပဲ ပြပါမည် -->
+    <div id="paymentScreen" class="payment-screen">
+      <div class="payment-card">
+        <div class="payment-check">✓</div>
+        <h2>Order တင်ပြီးပါပြီ</h2>
+        <p class="payment-order-id" id="payOrderId">Order ID: —</p>
+
+        <div class="payment-summary" id="paySummary"></div>
+
+        <div class="payment-account">
+          <div class="payment-account-label" id="payMethodLabel">KBZPay</div>
+          <div class="payment-account-number">
+            <span id="payAccountNumber">—</span>
+            <button id="copyBtn" class="copy-btn" type="button">Copy</button>
+          </div>
+          <div class="payment-account-name" id="payAccountName">—</div>
+        </div>
+
+        <p class="payment-note">
+          အထက်ပါ အကောင့်သို့ ငွေလွှဲပြီးရင်၊ ငွေလွှဲပြေစာ screenshot ကို
+          <strong>Bot chat ထဲ</strong>သို့ ပြန်ပို့ပေးပါ။ Admin စစ်ဆေးပြီးရင်
+          Diamond ကို Game ID ထဲသို့ ထည့်သွင်းပေးပါလိမ့်မယ်။
+        </p>
+
+        <button id="doneBtn" class="submit-btn payment-done-btn">
+          ငွေလွှဲပြီးပါပြီ, Bot Chat ဆီသွားမည်
+        </button>
+        <button id="newOrderBtn" class="ghost-btn" type="button">နောက်ထပ် Order တင်မည်</button>
+      </div>
+    </div>
   </div>
 
   <script src="app.js"></script>
