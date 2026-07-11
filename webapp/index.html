@@ -11,92 +11,168 @@
 </head>
 <body>
   <div class="app">
-    <div id="orderScreen">
-    <header class="hero">
-      <div class="hero-glow"></div>
-      <div class="hero-content">
-        <span class="eyebrow">MOBILE LEGENDS</span>
-        <h1>Monkey Recharge</h1>
-        <p class="sub">Server ID ထည့်ပြီး၊ Package ရွေးပြီး၊ မိနစ်ပိုင်းအတွင်း ရယူပါ</p>
-      </div>
-      <svg class="hero-diamond" viewBox="0 0 64 64" fill="none">
-        <path d="M32 4 L58 24 L32 60 L6 24 Z" stroke="url(#g)" stroke-width="1.5"/>
-        <path d="M6 24 H58 M18 24 L32 4 L46 24 M18 24 L32 60 L46 24" stroke="url(#g)" stroke-width="1"/>
-        <defs>
-          <linearGradient id="g" x1="6" y1="4" x2="58" y2="60">
-            <stop offset="0" stop-color="#7FE3FF"/>
-            <stop offset="1" stop-color="#FFC94A"/>
-          </linearGradient>
-        </defs>
-      </svg>
-    </header>
 
-    <main>
-      <section class="field-group">
-        <label class="field-label">ဂိမ်း အချက်အလက်</label>
-        <div class="input-row">
-          <input id="gameId" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="Game ID (ဥပမာ 123456789)" />
-          <input id="serverId" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="Server (ဥပမာ 2001)" class="server-input" />
+    <!-- ===================== SHOP TAB ===================== -->
+    <div id="shopTab" class="tab-screen">
+      <header class="hero">
+        <div class="hero-glow"></div>
+        <div class="hero-content">
+          <span class="eyebrow">MOBILE LEGENDS</span>
+          <h1>Monkey Recharge</h1>
+          <p class="sub">Server ID ထည့်ပြီး၊ Package ရွေးပြီး၊ မိနစ်ပိုင်းအတွင်း ရယူပါ</p>
         </div>
-      </section>
+        <svg class="hero-diamond" viewBox="0 0 64 64" fill="none">
+          <path d="M32 4 L58 24 L32 60 L6 24 Z" stroke="url(#g)" stroke-width="1.5"/>
+          <path d="M6 24 H58 M18 24 L32 4 L46 24 M18 24 L32 60 L46 24" stroke="url(#g)" stroke-width="1"/>
+          <defs>
+            <linearGradient id="g" x1="6" y1="4" x2="58" y2="60">
+              <stop offset="0" stop-color="#7FE3FF"/>
+              <stop offset="1" stop-color="#FFC94A"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </header>
 
-      <section class="field-group">
-        <label class="field-label">Package ရွေးပါ</label>
-        <div id="packageGrid" class="package-grid"></div>
-      </section>
+      <div id="orderScreen">
+        <main>
+          <section class="field-group">
+            <label class="field-label">ဂိမ်း အချက်အလက်</label>
+            <div class="input-row">
+              <input id="gameId" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="Game ID (ဥပမာ 123456789)" />
+              <input id="serverId" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="Server (ဥပမာ 2001)" class="server-input" />
+            </div>
+          </section>
 
-      <section class="field-group">
-        <label class="field-label">ငွေပေးချေမှု နည်းလမ်း</label>
-        <div class="pay-methods">
-          <button class="pay-btn" data-method="kbzpay">
-            <span class="pay-dot kbz"></span> KBZPay
-          </button>
-          <button class="pay-btn" data-method="wavepay">
-            <span class="pay-dot wave"></span> WavePay
-          </button>
-        </div>
-      </section>
-    </main>
+          <section class="field-group">
+            <label class="field-label">Package ရွေးပါ</label>
+            <div id="packageGrid" class="package-grid"></div>
+          </section>
 
-    <footer class="checkout-bar">
-      <div class="total">
-        <span class="total-label">စုစုပေါင်း</span>
-        <span id="totalPrice" class="total-price">— MMK</span>
-      </div>
-      <button id="submitBtn" class="submit-btn" disabled>Order တင်မည်</button>
-    </footer>
-    </div>
+          <section class="field-group">
+            <label class="field-label">ငွေပေးချေမှု နည်းလမ်း</label>
+            <div class="pay-methods">
+              <button class="pay-btn" data-method="wallet">
+                <span class="pay-dot wallet"></span> Wallet (<span id="walletMiniBalance">0</span>)
+              </button>
+              <button class="pay-btn" data-method="kbzpay">
+                <span class="pay-dot kbz"></span> KBZPay
+              </button>
+              <button class="pay-btn" data-method="wavepay">
+                <span class="pay-dot wave"></span> WavePay
+              </button>
+            </div>
+          </section>
+        </main>
 
-    <!-- NEW: Order တင်ပြီးရင် ဒီ payment screen ကို Mini App ထဲမှာပဲ ပြပါမည် -->
-    <div id="paymentScreen" class="payment-screen">
-      <div class="payment-card">
-        <div class="payment-check">✓</div>
-        <h2>Order တင်ပြီးပါပြီ</h2>
-        <p class="payment-order-id" id="payOrderId">Order ID: —</p>
-
-        <div class="payment-summary" id="paySummary"></div>
-
-        <div class="payment-account">
-          <div class="payment-account-label" id="payMethodLabel">KBZPay</div>
-          <div class="payment-account-number">
-            <span id="payAccountNumber">—</span>
-            <button id="copyBtn" class="copy-btn" type="button">Copy</button>
+        <footer class="checkout-bar">
+          <div class="total">
+            <span class="total-label">စုစုပေါင်း</span>
+            <span id="totalPrice" class="total-price">— MMK</span>
           </div>
-          <div class="payment-account-name" id="payAccountName">—</div>
+          <button id="submitBtn" class="submit-btn" disabled>Order တင်မည်</button>
+        </footer>
+      </div>
+
+      <!-- Order တင်ပြီးရင် ဒီ payment/processing screen ကို ပြပါမည် -->
+      <div id="paymentScreen" class="payment-screen">
+        <div class="payment-card">
+          <div class="payment-check">✓</div>
+          <h2 id="payTitle">Order တင်ပြီးပါပြီ</h2>
+          <p class="payment-order-id" id="payOrderId">Order ID: —</p>
+
+          <div class="payment-summary" id="paySummary"></div>
+
+          <div class="payment-account" id="payAccountBlock">
+            <div class="payment-account-label" id="payMethodLabel">KBZPay</div>
+            <img id="payQr" class="payment-qr" alt="Payment QR" />
+            <div class="payment-account-number">
+              <span id="payAccountNumber">—</span>
+              <button id="copyBtn" class="copy-btn" type="button">Copy</button>
+            </div>
+            <div class="payment-account-name" id="payAccountName">—</div>
+          </div>
+
+          <p class="payment-note" id="payNote">
+            အထက်ပါ အကောင့်သို့ ငွေလွှဲပြီးရင်၊ ငွေလွှဲပြေစာ screenshot ကို
+            <strong>Bot chat ထဲ</strong>သို့ ပြန်ပို့ပေးပါ။ Admin စစ်ဆေးပြီးရင်
+            Diamond ကို Game ID ထဲသို့ ထည့်သွင်းပေးပါလိမ့်မယ်။
+          </p>
+
+          <button id="doneBtn" class="submit-btn payment-done-btn">
+            ငွေလွှဲပြီးပါပြီ, Bot Chat ဆီသွားမည်
+          </button>
+          <button id="newOrderBtn" class="ghost-btn" type="button">နောက်ထပ် Order တင်မည်</button>
         </div>
-
-        <p class="payment-note">
-          အထက်ပါ အကောင့်သို့ ငွေလွှဲပြီးရင်၊ ငွေလွှဲပြေစာ screenshot ကို
-          <strong>Bot chat ထဲ</strong>သို့ ပြန်ပို့ပေးပါ။ Admin စစ်ဆေးပြီးရင်
-          Diamond ကို Game ID ထဲသို့ ထည့်သွင်းပေးပါလိမ့်မယ်။
-        </p>
-
-        <button id="doneBtn" class="submit-btn payment-done-btn">
-          ငွေလွှဲပြီးပါပြီ, Bot Chat ဆီသွားမည်
-        </button>
-        <button id="newOrderBtn" class="ghost-btn" type="button">နောက်ထပ် Order တင်မည်</button>
       </div>
     </div>
+
+    <!-- ===================== WALLET TAB ===================== -->
+    <div id="walletTab" class="tab-screen" style="display:none;">
+      <header class="hero hero-small">
+        <div class="hero-glow"></div>
+        <div class="hero-content">
+          <span class="eyebrow">MY WALLET</span>
+          <h1>ပိုက်ဆံအိတ်</h1>
+        </div>
+      </header>
+
+      <main>
+        <div class="balance-card">
+          <div class="balance-label">လက်ကျန်ငွေ</div>
+          <div class="balance-amount"><span id="walletBalance">0</span> ကျပ်</div>
+        </div>
+
+        <section class="field-group">
+          <label class="field-label">ဖြည့်မည့်ပမာဏ ရွေးပါ</label>
+          <div id="topupGrid" class="topup-grid"></div>
+          <input id="customAmount" type="text" inputmode="numeric" pattern="[0-9]*" placeholder="ကိုယ်တိုင်ပမာဏ ထည့်ရန် (min 1000 ကျပ်)" class="custom-amount-input" />
+        </section>
+
+        <section class="field-group">
+          <label class="field-label">ငွေပေးချေမှု နည်းလမ်း</label>
+          <div class="pay-methods">
+            <button class="pay-btn topup-pay-btn" data-method="kbzpay">
+              <span class="pay-dot kbz"></span> KBZPay
+            </button>
+            <button class="pay-btn topup-pay-btn" data-method="wavepay">
+              <span class="pay-dot wave"></span> WavePay
+            </button>
+          </div>
+        </section>
+
+        <button id="topupSubmitBtn" class="submit-btn wide-btn" disabled>ငွေဖြည့်မည်</button>
+      </main>
+    </div>
+
+    <!-- ===================== ORDERS TAB ===================== -->
+    <div id="ordersTab" class="tab-screen" style="display:none;">
+      <header class="hero hero-small">
+        <div class="hero-glow"></div>
+        <div class="hero-content">
+          <span class="eyebrow">HISTORY</span>
+          <h1>Order မှတ်တမ်း</h1>
+        </div>
+      </header>
+
+      <main>
+        <div id="ordersList" class="orders-list">
+          <p class="orders-empty">Order များ Loading လုပ်နေပါသည်...</p>
+        </div>
+      </main>
+    </div>
+
+    <!-- ===================== BOTTOM NAV ===================== -->
+    <nav class="bottom-nav">
+      <button class="nav-btn active" data-tab="shopTab">
+        <span class="nav-icon">🛒</span><span>Shop</span>
+      </button>
+      <button class="nav-btn" data-tab="walletTab">
+        <span class="nav-icon">💳</span><span>Wallet</span>
+      </button>
+      <button class="nav-btn" data-tab="ordersTab">
+        <span class="nav-icon">📋</span><span>Orders</span>
+      </button>
+    </nav>
   </div>
 
   <script src="app.js"></script>
